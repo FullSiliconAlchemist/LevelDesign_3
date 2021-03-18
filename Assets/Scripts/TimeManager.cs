@@ -5,6 +5,7 @@ public class TimeManager : MonoBehaviour
 {
     public float slowDownFactor = 0.8f;
     public float slowDownLength = 2f;
+    public bool bulletTime = false;
 
     private void Start()
     {
@@ -17,13 +18,14 @@ public class TimeManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             this.BulletTime();
+            this.bulletTime = true;
         }
         else
         {
             Time.timeScale += (slowDownLength) * Time.unscaledDeltaTime;
             Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+            this.bulletTime = false;
         }
-        //Debug.Log(Time.timeScale);
     }
 
     public void BulletTime()

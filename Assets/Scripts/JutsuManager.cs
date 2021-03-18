@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JutsuManager : MonoBehaviour
 {
@@ -8,13 +9,40 @@ public class JutsuManager : MonoBehaviour
 
     public GameObject hitMarker;
     public GameObject fireball;
+    public GameObject fireballInst;
+
+    public TimeManager focusMode;
+    public Text jutsuUI;
+
+    public string jutsuCode = "";
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (focusMode.bulletTime)
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                jutsuCode += "1";
+                jutsuUI.text = "Jutsu: 1";
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                jutsuCode += "2";
+                jutsuUI.text += "2";
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                jutsuCode += "3";
+                jutsuUI.text += "3";
+            }
+        }
+
+        if (Input.GetButtonDown("Fire1") && jutsuCode == "123")
         {
             Shoot();
+            jutsuCode = "";
+            jutsuUI.text = "Jutsu:";
         }
     }
 
@@ -23,7 +51,6 @@ public class JutsuManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
             TargetDummy target = hit.transform.GetComponent<TargetDummy>();
             if (target != null)
             {
@@ -35,13 +62,15 @@ public class JutsuManager : MonoBehaviour
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
 
-            GameObject effect = Instantiate(fireball, transform.position + (transform.forward * 2), Quaternion.LookRotation(-hit.normal));
             GameObject impact = Instantiate(hitMarker, hit.transform.position, Quaternion.LookRotation(-hit.normal));
 
-            Rigidbody fireballBody = effect.GetComponent<Rigidbody>();
-            fireballBody.AddForce(transform.forward * impactForce);
             Destroy(impact, 0.6f);
-            Destroy(effect, 1f);
         }
+        GameObject effect = Instantiate(fireball, fireballInst.transform.position, Quaternion.LookRotation(-hit.normal));
+
+        Rigidbody fireballBody = effect.GetComponent<Rigidbody>();
+        fireballBody.AddForce(transform.forward * impactForce, ForceMode.VelocityChange);
+        Destroy(effect, 1f);
+
     }
 }
