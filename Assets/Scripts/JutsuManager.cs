@@ -37,6 +37,11 @@ public class JutsuManager : MonoBehaviour
                 jutsuUI.text += "3";
             }
         }
+        else if (jutsuCode != "123")
+        {
+            jutsuCode = "";
+            jutsuUI.text = "Jutsu:";
+        }
 
         if (Input.GetButtonDown("Fire1") && jutsuCode == "123")
         {
@@ -44,6 +49,7 @@ public class JutsuManager : MonoBehaviour
             jutsuCode = "";
             jutsuUI.text = "Jutsu:";
         }
+
     }
 
     void Shoot()
