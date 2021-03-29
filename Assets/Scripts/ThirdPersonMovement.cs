@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
+    //public Animator animator;
     public Transform camera;
 
     public float speed = 6f;
@@ -13,6 +14,7 @@ public class ThirdPersonMovement : MonoBehaviour
     float turnSmoothVelocity;
 
     public Vector3 moveDir;
+    Vector3 jumpVelocity;
 
     bool isGrounded;
     public float jumpHeight = 20f;
@@ -28,13 +30,16 @@ public class ThirdPersonMovement : MonoBehaviour
         float ver = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(hor, 0f, ver).normalized;
+        //animator.SetBool("isRunning", true);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && moveDir.y < 0)
+        if (isGrounded && jumpVelocity.y < 0)
         {
-            moveDir.y = -2f;
+            jumpVelocity.y = -2f;
         }
+
+        jumpVelocity.y -= gravity * Time.deltaTime;
 
         if (direction.magnitude >= 0.1f)
         {
@@ -46,14 +51,15 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
+        //animator.SetBool("isRunning", false);
+
         // Jump function
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
             float product = jumpHeight * 2f * gravity;
-            moveDir.y = Mathf.Sqrt(product);
+            jumpVelocity.y = Mathf.Sqrt(product);
         }
 
-        // Have to decrement or else gravity ends up being reversed for some reason
-        moveDir.y -= gravity * Time.deltaTime;
+        controller.Move(jumpVelocity * Time.deltaTime);
     }
 }
