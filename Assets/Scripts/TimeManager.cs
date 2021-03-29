@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Mouse1))
         {
             this.BulletTime();
             this.bulletTime = true;

@@ -21,17 +21,17 @@ public class JutsuManager : MonoBehaviour
     {
         if (focusMode.bulletTime)
         {
-            if (Input.GetKeyDown(KeyCode.Keypad1))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 jutsuCode += "1";
                 jutsuUI.text = "Jutsu: 1";
             }
-            if (Input.GetKeyDown(KeyCode.Keypad2))
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 jutsuCode += "2";
                 jutsuUI.text += "2";
             }
-            if (Input.GetKeyDown(KeyCode.Keypad3))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 jutsuCode += "3";
                 jutsuUI.text += "3";
@@ -42,13 +42,18 @@ public class JutsuManager : MonoBehaviour
             jutsuCode = "";
             jutsuUI.text = "Jutsu:";
         }
-
-        if (Input.GetButtonDown("Fire1") && jutsuCode == "123")
+        else if (jutsuCode == "123")
         {
             Shoot();
             jutsuCode = "";
             jutsuUI.text = "Jutsu:";
         }
+
+        //if (Input.GetButtonDown("Fire1") && jutsuCode == "123")
+        //{
+        //    jutsuCode = "";
+        //    jutsuUI.text = "Jutsu:";
+        //}
 
     }
 
@@ -77,6 +82,5 @@ public class JutsuManager : MonoBehaviour
         Rigidbody fireballBody = effect.GetComponent<Rigidbody>();
         fireballBody.AddForce(transform.forward * impactForce, ForceMode.VelocityChange);
         Destroy(effect, 1f);
-
     }
 }

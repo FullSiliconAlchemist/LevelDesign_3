@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
-    //public Animator animator;
+    public Animator animator;
     public Transform camera;
 
     public float speed = 6f;
@@ -30,7 +30,6 @@ public class ThirdPersonMovement : MonoBehaviour
         float ver = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(hor, 0f, ver).normalized;
-        //animator.SetBool("isRunning", true);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -51,13 +50,20 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
-        //animator.SetBool("isRunning", false);
-
         // Jump function
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             float product = jumpHeight * 2f * gravity;
             jumpVelocity.y = Mathf.Sqrt(product);
+        }
+
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
 
         controller.Move(jumpVelocity * Time.deltaTime);
