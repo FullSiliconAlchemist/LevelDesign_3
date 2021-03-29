@@ -20,6 +20,7 @@ Design Concept Questions:
 For this game prototype I decided to build a gameplay mechanic based on the powers of a franchise anime called Naruto. I wanted to explore the possibility of incorporating "hand weaving" mechanics to summon a special power, sort of like how a wizard would read spells from a book.
 
 ![image](https://user-images.githubusercontent.com/47067612/112344132-2d6e7d00-8c9a-11eb-8cf3-eefbc2bd9b0c.png)
+
 Example of hand signs or hand weaving mechanics
 
 There was no level design, the environment was simple because I wanted the focus to be on the "jutsu" mechanic. From today's playtest I've learned that the game mechanics needed to be explained better, a simple tutorial scene ought to suffice to explain the mechanics. I've also learned that using the same hand for entering the key series and shooting the jutsu is cumbersome so I will figure out a way to have the player enter an input combination using a more comfortable manner, such as holding the right mouse button and using your left hand to enter the keys such as Jason suggested.
@@ -27,3 +28,9 @@ There was no level design, the environment was simple because I wanted the focus
 I will most likely be continuing this prototype as my iterative project, so the things I'd like to get done before next week are the following:
 
 Build a basic environment or level for the player to navigate in, set a series of objectives for the player to stay engaged, animate my character model with more game mechanics such as jumping, dashing, and some basic light attacks.
+
+# Design Journal for Iteration
+
+I've incorporated some basic running animations plus added some more color in the level to make it look nicer. Some changes to the lighting and camera FoV made the game seem wider and more interesting visually. NExt I'll be working on the fireball jutsu effect and add a fighting mechanic as well as a simple UI menu to bring up for jutsu or controls.
+
+
