@@ -6,6 +6,7 @@ public class Fireball : MonoBehaviour
 {
     Vector3 minScale;
     MeshRenderer mesh;
+    ParticleSystem particles;
     public Vector3 maxScale;
     public bool repeatable;
     public float speed = 2f;
@@ -15,7 +16,12 @@ public class Fireball : MonoBehaviour
     {
         if (collision.rigidbody != null)
         {
-            StartExplosion();
+            Rigidbody rb = GetComponent<Rigidbody>();
+            SphereCollider sc = GetComponent<SphereCollider>();
+            particles = GetComponentInChildren<ParticleSystem>();
+            rb.isKinematic = true;
+            sc.enabled = false;
+            StartCoroutine(StartExplosion());
         }
     }
 
@@ -23,10 +29,10 @@ public class Fireball : MonoBehaviour
     {
         mesh = GetComponent<MeshRenderer>();
         minScale = mesh.transform.localScale;
-        while(repeatable)
-        {
+        //while (repeatable)
+        //{
             yield return RepeatLerp(minScale, maxScale, duration);
-        }
+        //}
     }
 
     public IEnumerator RepeatLerp(Vector3 a, Vector3 b, float time)
@@ -37,7 +43,9 @@ public class Fireball : MonoBehaviour
         while (i < 1.0f)
         {
             i += Time.deltaTime * rate;
-            mesh.transform.localScale = Vector3.Lerp(a, b, i);
+            Vector3 lerp = Vector3.Lerp(a, b, i);
+            mesh.transform.localScale = lerp;
+            particles.startSize = lerp.magnitude;
             Debug.Log(mesh.transform.localScale);
             yield return null;
         }

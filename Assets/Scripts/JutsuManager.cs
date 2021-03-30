@@ -48,13 +48,6 @@ public class JutsuManager : MonoBehaviour
             jutsuCode = "";
             jutsuUI.text = "Jutsu:";
         }
-
-        //if (Input.GetButtonDown("Fire1") && jutsuCode == "123")
-        //{
-        //    jutsuCode = "";
-        //    jutsuUI.text = "Jutsu:";
-        //}
-
     }
 
     void Shoot()
@@ -77,6 +70,7 @@ public class JutsuManager : MonoBehaviour
 
             Destroy(impact, 0.6f);
         }
+
         GameObject effect = Instantiate(fireball, fireballInst.transform.position, Quaternion.LookRotation(-hit.normal));
 
         Rigidbody fireballBody = effect.GetComponent<Rigidbody>();

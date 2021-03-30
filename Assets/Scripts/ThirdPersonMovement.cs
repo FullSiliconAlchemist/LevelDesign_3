@@ -36,6 +36,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (isGrounded && jumpVelocity.y < 0)
         {
             jumpVelocity.y = -2f;
+            animator.SetBool("isAirborn", false);
         }
 
         jumpVelocity.y -= gravity * Time.deltaTime;
@@ -55,6 +56,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             float product = jumpHeight * 2f * gravity;
             jumpVelocity.y = Mathf.Sqrt(product);
+            animator.SetBool("isAirborn", true);
         }
 
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
