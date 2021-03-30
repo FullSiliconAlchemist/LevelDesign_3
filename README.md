@@ -31,6 +31,8 @@ Build a basic environment or level for the player to navigate in, set a series o
 
 # Design Journal for Iteration
 
-I've incorporated some basic running animations plus added some more color in the level to make it look nicer. Some changes to the lighting and camera FoV made the game seem wider and more interesting visually. NExt I'll be working on the fireball jutsu effect and add a fighting mechanic as well as a simple UI menu to bring up for jutsu or controls.
+I've incorporated some basic running animations plus added some more color in the level to make it look nicer. Some changes to the lighting and camera FoV made the game seem wider and more interesting visually. Next I'll be working on the fireball jutsu effect and add a fighting mechanic as well as a simple UI menu to bring up for jutsu or controls.
+
+I've progressed quite a bit on the game. I've improved the effects on the fireball jutsu, I've added some UI to help players better understand how the game mechanics work. As it stands there's no actual "Objective" to the current prototype, however I am looking to add a game objective on the second iteration of the game.
 
 
