@@ -6,15 +6,6 @@ At its most basic level I am trying to experiment with a mechanic where a player
 
 Although a free fireball is available right away, to recharge you must deliver the sequence shown at the top left corner. Hold Q and press the keys 1, 2 and 3 respecitvely to charge another fireball.
 
-Design Concept Questions:
-
-1. Does the third person camera distance and sensitivity feel correct?
-2. Does movement feel correct?
-3. Are you able to use and re-use the fireball jutsu?
-4. Does the key sequence resemble what you may have seen in Naruto?
-5. Does this game mechanic work well with a mouse and keyboard?
-
-
 # Design Journal
 
 For this game prototype I decided to build a gameplay mechanic based on the powers of a franchise anime called Naruto. I wanted to explore the possibility of incorporating "hand weaving" mechanics to summon a special power, sort of like how a wizard would read spells from a book.
@@ -35,4 +26,13 @@ I've incorporated some basic running animations plus added some more color in th
 
 I've progressed quite a bit on the game. I've improved the effects on the fireball jutsu, I've added some UI to help players better understand how the game mechanics work. As it stands there's no actual "Objective" to the current prototype, however I am looking to add a game objective on the second iteration of the game.
 
+Design Concept Questions:
 
+1. Does the third person camera distance and sensitivity feel correct?
+2. Does movement feel correct?
+3. Are you able to use and re-use the fireball jutsu?
+4. Does the key sequence resemble what you may have seen in Naruto?
+5. Does this game mechanic work well with a mouse and keyboard?
+6. Are in game instructions clear?
+7. Is the current aesthetic of the game suitable?
+8. Any visible bugs or anomalies found in the game?
