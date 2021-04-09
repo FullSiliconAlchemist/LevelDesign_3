@@ -36,3 +36,19 @@ Design Concept Questions:
 6. Are in game instructions clear?
 7. Is the current aesthetic of the game suitable?
 8. Any visible bugs or anomalies found in the game?
+
+# Design Journal for Iteration (After playtests)
+
+A lot has been learned from the testers for this iteration on mechanics, aesthetics and game design.
+
+First, on the mechanics front, most testers reviewed the game mechanics overall to be adaptable and easy to use. There were a few kinks that have been pointed out by some testers that are worth mentioning such as the fact that the fireball shoots where the player's avatar is facing and not where the camera is aiming. This is a good point, since in high-stakes, fast-paced action the player would not want to turn the character around before attacking, that's too many steps. 
+Another thing mentioned was the fact that engaging in a jutsu combination would hinder the movement of the character since, they would have to use their left hand to type the number combination on their keyboard. There would have to a better way to achieve this such as using the WASD keys instead.
+
+Second, on the aesthetic front, there was a lot of requests for sound effects upon using the Jutsu or the Focus Mode. This would make the game more satisfying in general and would provide clearer feedback to the players when engaging in these mechanics. 
+Visually, there were some hints to also have more effects that add to the player's feedback when using the powers and game mechanics. I've also had some comments about the environment and how it should have more elements such as buildings or artifacts that tailor more to the world.
+
+Finally, the game design, or lackthereof. The scene provides no goals, there's only a character and a Cube to bully around with fireballs. I have gotten feedback that instead of a Cube, maybe some kind of AI or dummy enemy would be more compelling. This may be complicated with the weeks left to iterate. Some have suggested that I create an obstacle course, where the player is challenged to traverse as fast as possible and hit all of the targets before time runs out.
+
+From the testings, I would probably put sound and visual effects as priority, then work on a game goal (obstacle course) then potentially change the game mechanics for aiming and changing the jutsu combination keys.
+
+As for the visual aspects of the game, most testers are 
