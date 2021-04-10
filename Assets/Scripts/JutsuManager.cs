@@ -23,16 +23,22 @@ public class JutsuManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
+                FindObjectOfType<AudioManager>().PlaySound("FireballJutsu");
+
                 jutsuCode += "1";
                 jutsuUI.text = "Jutsu: 1";
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
+                FindObjectOfType<AudioManager>().PlaySound("FireballJutsu");
+
                 jutsuCode += "2";
                 jutsuUI.text += "2";
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
+                FindObjectOfType<AudioManager>().PlaySound("FireballJutsu");
+
                 jutsuCode += "3";
                 jutsuUI.text += "3";
             }
