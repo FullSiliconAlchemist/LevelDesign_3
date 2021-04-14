@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675e1e2600b2cb54fac4034fee5a36b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   maxScale: {x: 60, y: 60, z: 60}
   repeatable: 1
   speed: 20

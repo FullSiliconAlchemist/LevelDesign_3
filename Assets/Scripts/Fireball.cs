@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour
     Vector3 minScale;
     MeshRenderer mesh;
     ParticleSystem particles;
+    public LayerMask groundLayer;
     public Vector3 maxScale;
     public bool repeatable;
     public float speed = 2f;
@@ -14,8 +15,11 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody != null)
+        Debug.Log(collision.gameObject.layer);
+
+        if (collision.gameObject.layer == 6)
         {
+            collision.rigidbody.useGravity = true;
             Rigidbody rb = GetComponent<Rigidbody>();
             SphereCollider sc = GetComponent<SphereCollider>();
             particles = GetComponentInChildren<ParticleSystem>();
@@ -31,7 +35,8 @@ public class Fireball : MonoBehaviour
         minScale = mesh.transform.localScale;
         //while (repeatable)
         //{
-            yield return RepeatLerp(minScale, maxScale, duration);
+        yield return RepeatLerp(minScale, maxScale, duration);
+        yield return RepeatLerp(maxScale, minScale, duration * 2);
         //}
     }
 
@@ -46,7 +51,6 @@ public class Fireball : MonoBehaviour
             Vector3 lerp = Vector3.Lerp(a, b, i);
             mesh.transform.localScale = lerp;
             particles.startSize = lerp.magnitude;
-            Debug.Log(mesh.transform.localScale);
             yield return null;
         }
     }

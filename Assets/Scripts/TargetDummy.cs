@@ -1,20 +1,22 @@
+using System.Collections;
 using UnityEngine;
 
 public class TargetDummy : MonoBehaviour
 {
-    public float health = 50f;
+    public float health = 10f;
     
     public void TakeDamage(float amount)
     {
         health -= amount;
         if (health <= 0)
         {
-            Ded();
+            StartCoroutine(Ded());
         }
     }
 
-    void Ded()
+    private IEnumerator Ded()
     {
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 }
