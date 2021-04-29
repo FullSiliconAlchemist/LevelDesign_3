@@ -59,7 +59,7 @@ public class ThirdPersonMovement : MonoBehaviour
             animator.SetBool("isAirborn", true);
         }
 
-        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        if (hor != 0 || ver != 0)
         {
             animator.SetBool("isRunning", true);
         }

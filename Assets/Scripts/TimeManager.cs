@@ -43,9 +43,12 @@ public class TimeManager : MonoBehaviour
                 music.spatialize = false;
             }
 
-            Time.timeScale += slowDownLength * Time.unscaledDeltaTime;
-            Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
-            this.bulletTime = false;
+            if (!FindObjectOfType<Pause>().paused)
+            {
+                Time.timeScale += slowDownLength * Time.unscaledDeltaTime;
+                Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+                this.bulletTime = false;
+            }
         }
     }
 

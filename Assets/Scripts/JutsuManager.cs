@@ -12,7 +12,8 @@ public class JutsuManager : MonoBehaviour
     public GameObject fireball;
     public GameObject fireballInst;
 
-    public TimeManager focusMode;
+    // can't assign component from unity
+    private TimeManager focusMode;
     public Text jutsuUI;
 
     public string jutsuCode = "";
@@ -24,6 +25,7 @@ public class JutsuManager : MonoBehaviour
 
     void Start()
     {
+        focusMode = FindObjectOfType<TimeManager>();
         currentJutsu = maxJutsu;
         jutsuBar.maxValue = maxJutsu;
         jutsuBar.value = maxJutsu;
